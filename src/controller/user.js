@@ -67,8 +67,9 @@ const getAlluser = async(req,res) =>{
 }
 
 const forgetPassword = async(req,res) => {
+    const {email} = req.body;
     try {
-        let user = await userModel.findOne({email:req.body.email})
+        let user = await userModel.findOne({email})
         if(user)
         {
             const randomString = randomstring.generate({
